@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEditor.Search;
 using System;
+using UnityEditor.XR.Management;
 
 public class RoomFilter : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class RoomFilter : MonoBehaviour
     public TMP_InputField roomInput;
 
     public TMP_Dropdown searchDrop;
+
+    public PathFinder pathFinder;
 
     void Start()
     {
@@ -34,6 +37,9 @@ public class RoomFilter : MonoBehaviour
             searchDrop.options.Add(optionData);
 
         }
+
+        searchDrop.value = 0;
+        searchDrop.RefreshShownValue();
 
 
 
@@ -64,5 +70,18 @@ public class RoomFilter : MonoBehaviour
         searchDrop.value = 0;
         searchDrop.RefreshShownValue();
 
+    }
+
+
+    public void SearchRoom()
+    {
+    String dropDownValue = searchDrop.options[searchDrop.value].text;
+    RoomLocation foundRoom = roomDict[dropDownValue];
+
+    
+    pathFinder.SetTarget(foundRoom.position);
+
+    gameObject.SetActive(false);
+    
     }
 }
