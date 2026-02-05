@@ -1,5 +1,6 @@
 
 
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -56,7 +57,7 @@ public class CameraOrbitController : MonoBehaviour
             rotation.y = Mathf.Clamp(rotation.y, pitchLimits.x, pitchLimits.y);
         }
 
-        Debug.Log(moveAction != null);
+
 
         // 4. Movement
         if (moveAction != null && moveAction.IsPressed())
@@ -65,8 +66,12 @@ public class CameraOrbitController : MonoBehaviour
             Vector3 right = targetCamera.transform.right;
             Vector3 up = targetCamera.transform.up;
 
-            target.position -= (right * lookInput.x + up * lookInput.y) * moveSpeed * Time.deltaTime;
+            Vector3 nposition = target.position - (right * lookInput.x + up * lookInput.y) * moveSpeed * Time.deltaTime;
+            nposition.x = Mathf.Clamp(nposition.x,-60,50);
+            nposition.y = Mathf.Clamp(nposition.y,-1,25);
+            nposition.z = Mathf.Clamp(nposition.z,-50,40);
 
+            target.position = nposition;
         }
 
 
