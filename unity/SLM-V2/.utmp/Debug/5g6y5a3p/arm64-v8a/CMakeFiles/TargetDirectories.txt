@@ -1,0 +1,5 @@
+C:/SLM/unity/SLM-V1/.utmp/Debug/5g6y5a3p/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/SLM/unity/SLM-V1/.utmp/Debug/5g6y5a3p/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/SLM/unity/SLM-V1/.utmp/Debug/5g6y5a3p/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/SLM/unity/SLM-V1/.utmp/Debug/5g6y5a3p/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/SLM/unity/SLM-V1/.utmp/Debug/5g6y5a3p/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
