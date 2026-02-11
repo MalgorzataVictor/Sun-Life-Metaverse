@@ -41,3 +41,15 @@ sysinfo.txt
 Assets/AddressableAssetsData/*/*.bin*
 Assets/AddressableAssetsData/*/*.json
 Assets/AddressableAssetsData/*/*.hash
+
+
+# ========================
+# Maya generated files
+# ========================
+.mayaSwatches/
+*.swatch
+autosave/
+*.autosave
+*.mb.autosave
+*.tmp
+*.log
