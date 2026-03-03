@@ -1,94 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Sun Life Metaverse</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- Top Bar -->
     <div id="topBar">
-        <h1>Sun Life Metaverse</h1>
-        <input type="text" id="roomInput" placeholder="Search room (e.g. R_01S006)">
-        <button onclick="searchRoom()">Go</button>
+        <div id="logoTitle">
+            <h1>Sun Life Metaverse</h1>
+        </div>
+        <div id="searchWrapper">
+            <input type="text" id="roomInput" placeholder="Search room (e.g. RL_01S001)">
+            <select id="roomDropdown" size="5"></select>
+        </div>
+        <div id="selectedRoomName">Select a room</div>
     </div>
 
+    <!-- Spinner Overlay -->
+    <div id="spinner">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Babylon.js Canvas -->
     <canvas id="renderCanvas"></canvas>
 
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-
-    <script>
-        const canvas = document.getElementById("renderCanvas");
-        const engine = new BABYLON.Engine(canvas, true);
-        let allMeshes = [];
-
-        const createScene = function () {
-            const scene = new BABYLON.Scene(engine);
-            scene.clearColor = new BABYLON.Color3(0.95, 0.95, 0.95);
-
-            const camera = new BABYLON.ArcRotateCamera(
-                "camera",
-                Math.PI / 2,
-                Math.PI / 3,
-                20,
-                new BABYLON.Vector3(0, 2, 0),
-                scene
-            );
-            camera.attachControl(canvas, true);
-
-            const light = new BABYLON.HemisphericLight(
-                "light",
-                new BABYLON.Vector3(0, 1, 0),
-                scene
-            );
-
-
-            BABYLON.SceneLoader.Append("", "office.glb", scene, function () {
-                console.log("Model loaded!");
-                allMeshes = scene.meshes;
-                console.log(scene.meshes.map(m => m.name));
-            });
-
-            
-
-
-            return scene;
-        };
-
-        function searchRoom() {
-            const input = document.getElementById("roomInput").value.trim();
-
-            const foundMesh = allMeshes.find(mesh => mesh.name === input);
-
-            if (!foundMesh) {
-                alert("Room not found!");
-                return;
-            }
-
-            // Highlight room
-            const highlight = new BABYLON.HighlightLayer("hl1", scene);
-            highlight.addMesh(foundMesh, BABYLON.Color3.Yellow());
-
-            // Move camera to room
-            const boundingInfo = foundMesh.getBoundingInfo();
-            const center = boundingInfo.boundingBox.centerWorld;
-
-            camera.setTarget(center);
-        }
-
-
-        const scene = createScene();
-        engine.runRenderLoop(function () {
-            scene.render();
-        });
-
-        window.addEventListener("resize", function () {
-            engine.resize();
-        });
-    </script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
