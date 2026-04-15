@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     
-    public InputActionReference interactActionRef;
-    private InputAction interactAction;
+    public InputActionReference interactActionRef1;
+    public InputActionReference interactActionRef2;
+
+    private InputAction interactAction1;
+    private InputAction interactAction2;
 
     public Transform menuTransform;
+    public Transform resetTransform;
 
     public GameObject menuScreen;
     public bool menuActive = false;
@@ -15,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        interactAction = interactActionRef.ToInputAction();
+        interactAction1 = interactActionRef1.ToInputAction();
+        interactAction2 = interactActionRef2.ToInputAction();
     }
     
     void Awake()
@@ -24,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (interactAction.WasPerformedThisFrame())
+        if (interactAction1.WasPerformedThisFrame())
         {
             Debug.Log("Trigerring Menu...");
             menuActive = !menuActive;
@@ -38,6 +43,13 @@ public class PlayerMovement : MonoBehaviour
             }
             
 
+        }
+
+        if (interactAction2.WasPerformedThisFrame())
+        {
+            Debug.Log("Resetting Player Position...");
+            transform.position = resetTransform.position;
+            transform.rotation = resetTransform.rotation;
         }
     }
 }

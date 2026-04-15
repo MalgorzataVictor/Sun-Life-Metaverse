@@ -11,21 +11,16 @@ public class RoomFilter : MonoBehaviour
 
     public SortedDictionary<string, RoomLocation> roomDict = new();
     public TMP_InputField roomInput;
-
     public TMP_Dropdown searchDrop;
-
     public PathFinder pathFinder;
 
     void Start()
     {
 
         searchDrop.ClearOptions();
-
         GameObject[] roomInfos = GameObject.FindGameObjectsWithTag("RoomInfo");
-
         foreach (GameObject go in roomInfos)
         {
-
             RoomLocation roomDetails = go.GetComponent<RoomLocation>();
             roomDict.Add(roomDetails.roomCode, roomDetails);
 
@@ -34,14 +29,9 @@ public class RoomFilter : MonoBehaviour
                 text = roomDetails.roomCode
             };
             searchDrop.options.Add(optionData);
-
         }
-
         searchDrop.value = 0;
         searchDrop.RefreshShownValue();
-
-
-
     }
 
 
@@ -74,13 +64,13 @@ public class RoomFilter : MonoBehaviour
 
     public void SearchRoom()
     {
-    String dropDownValue = searchDrop.options[searchDrop.value].text;
-    RoomLocation foundRoom = roomDict[dropDownValue];
+        String dropDownValue = searchDrop.options[searchDrop.value].text;
+        RoomLocation foundRoom = roomDict[dropDownValue];
 
-    
-    pathFinder.SetTarget(foundRoom.position);
 
-    gameObject.SetActive(false);
-    
+        pathFinder.SetTarget(foundRoom.position);
+
+        gameObject.SetActive(false);
+
     }
 }

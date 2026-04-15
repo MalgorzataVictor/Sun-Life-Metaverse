@@ -1,39 +1,89 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
+
+
 <head>
+
     <meta charset="UTF-8">
+
     <title>Sun Life Metaverse</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 
 <body>
 
+
+
     <!-- Top Bar -->
-    <div id="topBar">
-        <div id="logoTitle">
-            <h1>Sun Life Metaverse</h1>
+    <div id="topBarMain">
+        <h1>Sun Life Metaverse</h1>
+    </div>
+
+    <!-- LEFT PANEL -->
+    <div id="leftPanel">
+
+        <div id="zoneMenu">
+            <div class="menuTitle">Select Zone</div>
+
+            <label><input type="checkbox" id="collabZone"> Collaboration Zone</label>
+            <label><input type="checkbox" id="villageZone"> Village Space</label>
         </div>
-        <div id="searchWrapper">
+
+        <button id="resetViewBtn">Reset View</button>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div id="rightPanel">
+
+        <div id="roomBox">
+            <div class="menuTitle">Selected Room</div>
+            <div id="selectedRoomName">None</div>
+
+            <!-- NEW: Navigate Button -->
+            <button id="navigateBtn" style="display:none; margin-top:10px;">
+                Navigate
+            </button>
+        </div>
+
+        <div id="searchBox">
+            <div class="menuTitle">Search</div>
             <input type="text" id="roomInput" placeholder="Search room (e.g. RL_01S001)">
             <select id="roomDropdown" size="5"></select>
         </div>
-        <div id="selectedRoomName">Select a room</div>
+
     </div>
 
-    <!-- Spinner Overlay -->
-    <div id="spinner">
-        <div class="loader"></div>
-    </div>
+
+
 
     <!-- Babylon.js Canvas -->
+
     <canvas id="renderCanvas"></canvas>
 
-    <script src="https://cdn.babylonjs.com/babylon.js"></script>
-    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+
+
+    <script src=https://cdn.babylonjs.com/babylon.js></script>
+
+    <script src=https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js></script>
+
+
+    <script src="https://preview.babylonjs.com/recast.js"></script>
+    
     <script src="app.js"></script>
 
+    
+
+
+
 </body>
+
+
 
 </html>

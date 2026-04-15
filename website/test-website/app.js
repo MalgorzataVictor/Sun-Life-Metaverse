@@ -1,3 +1,6 @@
+
+
+
 class SunLifeMetaverse {
     constructor(canvasId, dropdownId, inputId, spinnerId, selectedRoomId) {
         this.canvas = document.getElementById(canvasId);
@@ -12,58 +15,259 @@ class SunLifeMetaverse {
         this.input = document.getElementById(inputId);
         this.spinner = document.getElementById(spinnerId);
         this.selectedRoomDiv = document.getElementById(selectedRoomId);
-
         this.selectedMesh = null;
+        this.initialCameraState = {};
+
+        this.crowd = null;
+        this.agentIndex = null;
+        this.agentTransform = null;
+
+        this.currentPath = null;
+        this.pathMesh = null;
+
+
+        this.startMeshName = "01S005_Techbar";
+        this.destinationMesh = null;
+        this.navigateBtn = document.getElementById("navigateBtn");
+
+
+        this.collabZone = [
+            "01N001", "01N002", "01N003", "01N005", "01N006", "01N027", "01N028",
+            "01N029", "01N030", "01N092", "01N093", "01N101",
+            "01E033", "01E034_Kitchen", "01E036_CourtYard", "01E037", "01E038_Office2",
+            "01E060", "01E092", "01E093", "01E094",
+            "01W008_Pool", "01W009_Library", "01W010", "01W020_Crystal",
+            "01W055", "01W056", "01W057", "01W058", "01W059",
+            "01W061", "01W062", "01W063_Dunmore", "01W064",
+            "01W067_Lismore", "01W068_Greenway",
+            "01W095_Viking", "01W096", "01W097", "01W098", "01W099",
+            "01W103", "01W104", "01W105", "01W106",
+            "01W107_SensoryRoom", "01W108_TableTennis",
+            "01S001_VRRoom", "01S002_Office1", "01S003", "01S004_SupportCentre",
+            "01S009", "01S010",
+            "S01028_Reception", "S01029", "S01030", "S01016",
+            "S01035", "S01036", "S01038", "S01050"
+        ];
+
+        this.villageZone = [
+            "01S005_Techbar",
+            "S01044_Coffee",
+            "S01014_Canteen"
+        ];
 
         this.init();
     }
 
-    init() {
+    async init() {
         this.showSpinner(true);
+
+
+        const recast = await Recast();
+
+
+        this.navigationPlugin = new BABYLON.RecastJSPlugin(recast);
+
         this.scene = this.createScene();
 
         this.engine.runRenderLoop(() => this.scene.render());
         window.addEventListener("resize", () => this.engine.resize());
 
         this.setupSearchDropdown();
+        this.setupZoneFilters();
+
+        document.getElementById("resetViewBtn")
+            .addEventListener("click", () => this.resetCamera());
+
+
+
+
     }
 
     createScene() {
         const scene = new BABYLON.Scene(this.engine);
-        scene.clearColor = new BABYLON.Color3(0.95, 0.95, 0.95);
+        scene.clearColor = new BABYLON.Color3(1.0, 0.97, 0.9);
 
-        // Camera
         this.camera = new BABYLON.ArcRotateCamera(
             "camera",
             Math.PI / 2,
             Math.PI / 3,
-            20,
+            100,
             new BABYLON.Vector3(0, 2, 0),
             scene
         );
         this.camera.attachControl(this.canvas, true);
 
-        // Light
+        this.camera.wheelPrecision = 10;
+        this.camera.lowerRadiusLimit = 5;
+        this.camera.upperRadiusLimit = 200;
+
+        this.camera.angularSensibilityX = 4000;
+        this.camera.angularSensibilityY = 4000;
+
+        this.camera.lowerBetaLimit = 0.1;
+        this.camera.upperBetaLimit = Math.PI / 2;
+
         new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-        // Highlight layer
         this.highlightLayer = new BABYLON.HighlightLayer("hl1", scene);
 
-        // Load model
-        BABYLON.SceneLoader.Append("", "slm.glb", scene, () => {
-            console.log("Model loaded!");
+        BABYLON.SceneLoader.Append("", "SLM-V2.glb", scene, () => {
             this.allMeshes = scene.meshes.filter(m => m.name.includes("RL_"));
+            this.allMeshes = mergePrimitivesInList(this.allMeshes);
 
-            // Clean names: remove __primitive0/1 suffix
-            this.allMeshes.forEach(m => {
-                m.name = m.name.split("|").pop().replace(/__primitive\d+$/, "");
-            });
+            const boundingInfo = scene.getWorldExtends();
+            const center = boundingInfo.min.add(boundingInfo.max).scale(0.5);
 
+            this.camera.setTarget(center);
+            this.camera.radius = BABYLON.Vector3.Distance(boundingInfo.min, boundingInfo.max) * 0.8;
+
+
+            const navmeshMeshes = scene.meshes.filter(m => m.isVisible);
+
+            const parameters = {
+                cs: 0.2,
+                ch: 0.2,
+                walkableSlopeAngle: 35,
+                walkableHeight: 1,
+                walkableClimb: 1,
+                walkableRadius: 1,
+                maxEdgeLen: 12,
+                maxSimplificationError: 1.3,
+                minRegionArea: 8,
+                mergeRegionArea: 20,
+                maxVertsPerPoly: 6,
+                detailSampleDist: 6,
+                detailSampleMaxError: 1,
+            };
+
+            this.navigationPlugin.createNavMesh(navmeshMeshes, parameters);
+
+
+
+            this.crowd = this.navigationPlugin.createCrowd(10, 0.1, scene);
+
+            const agentParams = {
+                radius: 0.2,
+                height: 1.2,
+                maxAcceleration: 10,
+                maxSpeed: 5,
+                collisionQueryRange: 10,
+                pathOptimizationRange: 10,
+                separationWeight: 1
+            };
+
+            this.agentMesh = BABYLON.MeshBuilder.CreateSphere("agent", {
+                diameter: 1
+            }, scene);
+
+            const agentMat = new BABYLON.StandardMaterial("agentMat", scene);
+            agentMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
+            this.agentMesh.material = agentMat;
+
+            this.agentMesh.position = new BABYLON.Vector3(0, 0.9, 0);
+
+            // ✅ START POSITION = TECHBAR
+            const startMesh = scene.getMeshByName("RL_01S005_Techbar");
+
+            const startPos = this.navigationPlugin.getClosestPoint(
+                startMesh.getBoundingInfo().boundingBox.centerWorld
+            );
+            this.startPos = startPos.clone();
+
+            // CREATE AGENT
+            this.agentIndex = this.crowd.addAgent(startPos, agentParams, this.agentMesh);
+        
             this.updateDropdownOptions();
             this.showSpinner(false);
         });
 
-        // Click-to-select
+
+        // Save initial camera state
+        this.initialCameraState = {
+            target: this.camera.target.clone(),
+            radius: this.camera.radius,
+            alpha: this.camera.alpha,
+            beta: this.camera.beta
+        };
+
+
+        function mergePrimitivesInList(meshList) {
+            const groups = {};
+
+            meshList.forEach(m => {
+                const baseName = m.name.replace(/_primitive\d+/i, "");
+                if (!groups[baseName]) groups[baseName] = [];
+                groups[baseName].push(m);
+            });
+
+            const finalList = [];
+
+            for (let name in groups) {
+                const meshes = groups[name];
+
+                if (meshes.length === 1) {
+                    finalList.push(meshes[0]);
+                    continue;
+                }
+
+                const merged = BABYLON.Mesh.MergeMeshes(meshes, true, true, undefined, false, true);
+
+                if (merged) {
+                    merged.name = name;
+                    finalList.push(merged);
+                }
+            }
+
+            return finalList;
+        }
+
+
+        this.navigateBtn.addEventListener("click", () => {
+            if (!this.destinationMesh || !this.crowd) return;
+
+            const targetPos = this.navigationPlugin.getClosestPoint(
+                this.destinationMesh.getBoundingInfo().boundingBox.centerWorld
+            );
+
+            this.crowd.agentGoto(this.agentIndex, targetPos);
+
+
+            var rawPath = this.navigationPlugin.computePath(
+                this.crowd.getAgentPosition(this.agentIndex),
+                this.navigationPlugin.getClosestPoint(targetPos)
+            );
+
+            // 🔼 lift path slightly above floor
+            const liftedPath = rawPath.map(p =>
+                new BABYLON.Vector3(p.x, p.y + 0.90, p.z)
+            );
+
+            // 🧵 create thick tube path (BEST OPTION)
+            if (this.pathMesh) {
+                this.pathMesh.dispose();
+            }
+
+            this.pathMesh = BABYLON.MeshBuilder.CreateTube(
+                "pathTube",
+                {
+                    path: liftedPath,
+                    radius: 0.30,   // 👈 thickness (increase if you want more)
+                    tessellation: 8,
+                    updatable: false
+                },
+                scene
+            );
+
+            // 🔴 red material
+            const mat = new BABYLON.StandardMaterial("pathMat", scene);
+            mat.diffuseColor = new BABYLON.Color3(1, 0, 0);
+            mat.emissiveColor = new BABYLON.Color3(1, 0, 0);
+            this.pathMesh.material = mat;
+
+            // camera move
+            this.goTopDownView(targetPos);
+        });
+
         scene.onPointerObservable.add(pointerInfo => {
             if (pointerInfo.type === BABYLON.PointerEventTypes.POINTERPICK) {
                 const picked = pointerInfo.pickInfo.pickedMesh;
@@ -71,111 +275,244 @@ class SunLifeMetaverse {
             }
         });
 
+        scene.onPointerObservable.add((pointerInfo) => {
+            if (pointerInfo.pickInfo?.hit) {
+                const p = pointerInfo.pickInfo.pickedPoint;
+
+                const nav = this.navigationPlugin.getClosestPoint(p);
+
+
+            }
+        });
+        scene.onBeforeRenderObservable.add(() => {
+            if (!this.crowd || this.agentIndex === null) return;
+
+            const pos = this.crowd.getAgentPosition(this.agentIndex);
+
+            // keep agent on navmesh
+            this.agentMesh.position.x = pos.x;
+            this.agentMesh.position.z = pos.z;
+
+            // lift it slightly above ground
+            this.agentMesh.position.y = pos.y + 0.9;
+        });
+
         return scene;
     }
 
-    // Spinner
-    showSpinner(show) {
-        if (this.spinner) this.spinner.style.display = show ? "flex" : "none";
+
+    setupZoneFilters() {
+        const collabCheckbox = document.getElementById("collabZone");
+        const villageCheckbox = document.getElementById("villageZone");
+
+        const updateHighlights = () => {
+            this.highlightLayer.removeAllMeshes();
+
+            this.allMeshes.forEach(mesh => {
+
+
+
+                var cleanName = mesh.name.replace("RL_", "");
+                if (cleanName.endsWith("_")) cleanName = cleanName.slice(0, -1);
+
+                if (collabCheckbox.checked && this.collabZone.includes(cleanName)) {
+                    this.highlightLayer.addMesh(mesh, BABYLON.Color3.Blue());
+                }
+
+                if (villageCheckbox.checked && this.villageZone.includes(cleanName)) {
+                    this.highlightLayer.addMesh(mesh, BABYLON.Color3.Green());
+                }
+            });
+        };
+
+        collabCheckbox.addEventListener("change", updateHighlights);
+        villageCheckbox.addEventListener("change", updateHighlights);
     }
 
-    // Dropdown live search
+    showSpinner(show) {
+        if (this.spinner) {
+            this.spinner.style.display = show ? "flex" : "none";
+        }
+    }
+
     setupSearchDropdown() {
         this.input.addEventListener("input", () => this.updateDropdownOptions(this.input.value));
         this.dropdown.addEventListener("change", () => this.searchRoom(this.dropdown.value));
     }
 
     updateDropdownOptions(filter = "") {
-        if (!this.dropdown) return;
         const filterLower = filter.toLowerCase();
         this.dropdown.innerHTML = "";
+
         this.allMeshes
             .filter(m => m.name.toLowerCase().includes(filterLower))
             .forEach(m => {
                 const opt = document.createElement("option");
                 opt.value = m.name;
                 opt.textContent = m.name;
-                this.dropdown.appendChild(opt);
+                this.dropdown.appendChild(opt); // this bad
             });
     }
 
-    // Search & select room
     searchRoom(roomName) {
-        if (!roomName) return;
         const mesh = this.allMeshes.find(m => m.name.toLowerCase() === roomName.toLowerCase());
-        if (!mesh) {
-            alert("Room not found!");
-            return;
-        }
+        if (!mesh) return alert("Room not found!");
         this.selectMesh(mesh);
     }
 
-    // Select a room mesh
     selectMesh(mesh) {
-        // Remove previous highlight
-        if (this.selectedMesh) this.highlightLayer.removeAllMeshes();
+        this.highlightLayer.removeAllMeshes();
 
         this.selectedMesh = mesh;
+        this.highlightLayer.addMesh(mesh, BABYLON.Color3.Red());
 
-        // Highlight selected mesh
-        this.highlightLayer.addMesh(mesh, BABYLON.Color3.Yellow());
-
-        // Update top bar room name
         if (this.selectedRoomDiv) {
             this.selectedRoomDiv.textContent = mesh.name;
         }
 
-        // Smooth camera animation with limited zoom
         const boundingInfo = mesh.getBoundingInfo();
         const center = boundingInfo.boundingBox.centerWorld;
         const targetRadius = Math.max(boundingInfo.boundingBox.extendSize.length() * 3, 10);
 
         BABYLON.Animation.CreateAndStartAnimation(
-            "camMove",
+            "camMove", this.camera, "target", 60, 90,
+            this.camera.target, center, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camZoom", this.camera, "radius", 60, 90,
+            this.camera.radius, targetRadius, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+
+        this.destinationMesh = mesh;
+
+        // show navigate button
+        if (this.navigateBtn) {
+            this.navigateBtn.style.display = "block";
+        }
+    }
+
+    resetCamera() {
+
+        if (this.crowd && this.agentIndex !== null && this.startPos) {
+
+            // stop current movement
+            this.crowd.agentTeleport(this.agentIndex, this.startPos);
+
+            // optional: reset navigation target too
+            this.crowd.agentGoto(this.agentIndex, this.startPos);
+
+            // remove path line if exists
+            if (this.pathMesh) {
+                this.pathMesh.dispose();
+                this.pathMesh = null;
+            }
+
+            this.currentPath = null;
+        }
+
+        if (!this.initialCameraState) return;
+
+        const s = this.initialCameraState;
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camTarget",
             this.camera,
             "target",
             60,
             90,
             this.camera.target,
-            center,
+            s.target,
             BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
         );
 
         BABYLON.Animation.CreateAndStartAnimation(
-            "camZoom",
+            "camRadius",
             this.camera,
             "radius",
             60,
             90,
             this.camera.radius,
-            targetRadius,
+            s.radius,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camAlpha",
+            this.camera,
+            "alpha",
+            60,
+            90,
+            this.camera.alpha,
+            s.alpha,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camBeta",
+            this.camera,
+            "beta",
+            60,
+            90,
+            this.camera.beta,
+            s.beta,
             BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
         );
     }
 
-    // JSON export
-    generateRLMeshJSON() {
-        const names = this.allMeshes.map(m => m.name);
-        const json = JSON.stringify(names, null, 2);
-        console.log("RL_ meshes JSON:\n", json);
-        return json;
+
+    goTopDownView() {
+        // Get FULL map bounds (IMPORTANT)
+        const bounds = this.scene.getWorldExtends();
+        const center = bounds.min.add(bounds.max).scale(0.5);
+
+        // HUGE zoom based on full model size
+        const size = BABYLON.Vector3.Distance(bounds.min, bounds.max);
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "topAlpha",
+            this.camera,
+            "alpha",
+            60,
+            30,
+            this.camera.alpha,
+            Math.PI / 2,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "topBeta",
+            this.camera,
+            "beta",
+            60,
+            30,
+            this.camera.beta,
+            0.05,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "topZoom",
+            this.camera,
+            "radius",
+            60,
+            30,
+            this.camera.radius,
+            size * 1,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        this.camera.setTarget(center);
     }
 
-    downloadRLMeshJSON(filename = "RL_meshes.json") {
-        const json = this.generateRLMeshJSON();
-        const blob = new Blob([json], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = filename;
-        a.click();
-        URL.revokeObjectURL(url);
-    }
+
 }
 
-// Initialize app
+
+
 window.addEventListener("DOMContentLoaded", () => {
-    const app = new SunLifeMetaverse(
+    new SunLifeMetaverse(
         "renderCanvas",
         "roomDropdown",
         "roomInput",
