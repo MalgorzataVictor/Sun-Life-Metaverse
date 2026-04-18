@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerController : MonoBehaviour
 {
     
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject menuScreen;
     public bool menuActive = false;
+
+    [SerializeField] private UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor rayInteractor;
 
     void Start()
     {
@@ -34,7 +37,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Trigerring Menu...");
             menuActive = !menuActive;
             menuScreen.SetActive(menuActive);
-
+            rayInteractor.enabled = menuScreen.activeSelf;
+            
+            
             if (menuActive)
             {
             menuScreen.transform.position = menuTransform.position; 

@@ -1,81 +1,519 @@
-[
-    "RL_01E033_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01E034_Kitchen ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01E036_CourtYard ({X: 0 Y: 0 Z: 0}",
-    "RL_01E037_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01E038_Office2 ({X: 0 Y: 0 Z: 0}",
-    "RL_01E060_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01E092_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01E093_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01E094_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01032_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01033_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01034_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N001_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N002_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N003_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N005_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N006_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N027_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N028_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N029_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N030_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N092_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N093_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01N101_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01035_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01036_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01038_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01050_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01S001_VRRoom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01S002_Office1 ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01S003_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01S004_SupportCentre ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01S005_Techbar ({X: 0 Y: 0 Z: 0}",
-    "RL_01S009_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01S010_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01028_Reception ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01029_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01030_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01044_Coffee ({X: 2.8786888521492267e-16 Y: -0.7128239870071411 Z: 0}",
-    "RL_01W008_Pool ({X: 0 Y: 0 Z: 0}",
-    "RL_01W009_Library ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W010_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W020_Crystal ({X: 0 Y: 0 Z: 0}",
-    "RL_01W055_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W056_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W057_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W058_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W059_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W061_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W062_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W063_Dunmore ({X: 23.753822326660156 Y: 3.0539376735687256 Z: -9.312329292297363}",
-    "RL_01W064_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W067_Lismore ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W068_Greenway ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W095_Viking ({X: 34.363468170166016 Y: 3.05395245552063 Z: -23.720874786376953}",
-    "RL_01W096_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W097_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W098_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W099_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W103_ ({X: 0 Y: 0 Z: 0}",
-    "RL_01W104_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W105_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W106_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W107_SensoryRoom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_01W108_TableTennis ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01003_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01007_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01009_KitchenUtility ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01013_Kitchen ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01014_Canteen ({X: 37.2722053527832 Y: 4.70030403137207 Z: 6.1105828285217285}",
-    "RL_S01016_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01021_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01022_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01023_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01024_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01025_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01026_ ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S01027_Bathroom ({X: -1.8527735471725464 Y: 4.701833248138428 Z: 26.337644577026367}",
-    "RL_S02021_Mezzaine ({X: 0 Y: 0 Z: 0}"
-]
+class SunLifeMetaverse {
+    constructor(canvasId, dropdownId, inputId, spinnerId, selectedRoomId) {
+        this.canvas = document.getElementById(canvasId);
+        this.engine = new BABYLON.Engine(this.canvas, true);
+
+        this.scene = null;
+        this.camera = null;
+        this.allMeshes = [];
+        this.highlightLayer = null;
+
+        this.dropdown = document.getElementById(dropdownId);
+        this.input = document.getElementById(inputId);
+        this.spinner = document.getElementById(spinnerId);
+        this.selectedRoomDiv = document.getElementById(selectedRoomId);
+        this.selectedMesh = null;
+        this.initialCameraState = {};
+
+        this.crowd = null;
+        this.agentIndex = null;
+        this.agentTransform = null;
+
+        this.currentPath = null;
+        this.pathMesh = null;
+
+
+        this.startMeshName = "01S005_Techbar";
+        this.destinationMesh = null;
+        this.navigateBtn = document.getElementById("navigateBtn");
+
+
+        this.collabZone = [
+            "01N001", "01N002", "01N003", "01N005", "01N006", "01N027", "01N028",
+            "01N029", "01N030", "01N092", "01N093", "01N101",
+            "01E033", "01E034_Kitchen", "01E036_CourtYard", "01E037", "01E038_Office2",
+            "01E060", "01E092", "01E093", "01E094",
+            "01W008_Pool", "01W009_Library", "01W010", "01W020_Crystal",
+            "01W055", "01W056", "01W057", "01W058", "01W059",
+            "01W061", "01W062", "01W063_Dunmore", "01W064",
+            "01W067_Lismore", "01W068_Greenway",
+            "01W095_Viking", "01W096", "01W097", "01W098", "01W099",
+            "01W103", "01W104", "01W105", "01W106",
+            "01W107_SensoryRoom", "01W108_TableTennis",
+            "01S001_VRRoom", "01S002_Office1", "01S003", "01S004_SupportCentre",
+            "01S009", "01S010",
+            "S01028_Reception", "S01029", "S01030", "S01016",
+            "S01035", "S01036", "S01038", "S01050"
+        ];
+
+        this.villageZone = [
+            "01S005_Techbar",
+            "S01044_Coffee",
+            "S01014_Canteen"
+        ];
+
+        this.init();
+    }
+
+    async init() {
+        this.showSpinner(true);
+
+
+        const recast = await Recast();
+
+
+        this.navigationPlugin = new BABYLON.RecastJSPlugin(recast);
+
+        this.scene = this.createScene();
+
+        this.engine.runRenderLoop(() => this.scene.render());
+        window.addEventListener("resize", () => this.engine.resize());
+
+        this.setupSearchDropdown();
+        this.setupZoneFilters();
+
+        document.getElementById("resetViewBtn")
+            .addEventListener("click", () => this.resetCamera());
+
+
+
+
+    }
+
+    createScene() {
+        const scene = new BABYLON.Scene(this.engine);
+        scene.clearColor = new BABYLON.Color3(1.0, 0.97, 0.9);
+
+        this.camera = new BABYLON.ArcRotateCamera(
+            "camera",
+            Math.PI / 2,
+            Math.PI / 3,
+            100,
+            new BABYLON.Vector3(0, 2, 0),
+            scene
+        );
+        this.camera.attachControl(this.canvas, true);
+
+        this.camera.wheelPrecision = 10;
+        this.camera.lowerRadiusLimit = 5;
+        this.camera.upperRadiusLimit = 200;
+
+        this.camera.angularSensibilityX = 4000;
+        this.camera.angularSensibilityY = 4000;
+
+        this.camera.lowerBetaLimit = 0.1;
+        this.camera.upperBetaLimit = Math.PI / 2;
+
+        new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+
+        this.highlightLayer = new BABYLON.HighlightLayer("hl1", scene);
+
+        BABYLON.SceneLoader.Append("", "SLM-V2.glb", scene, () => {
+            this.allMeshes = scene.meshes.filter(m => m.name.includes("RL_"));
+            this.allMeshes = mergePrimitivesInList(this.allMeshes);
+
+            const boundingInfo = scene.getWorldExtends();
+            const center = boundingInfo.min.add(boundingInfo.max).scale(0.5);
+
+            this.camera.setTarget(center);
+            this.camera.radius = BABYLON.Vector3.Distance(boundingInfo.min, boundingInfo.max) * 0.8;
+
+
+            const navmeshMeshes = scene.meshes.filter(m => m.isVisible);
+
+            const parameters = {
+                cs: 0.2,
+                ch: 0.2,
+                walkableSlopeAngle: 35,
+                walkableHeight: 1,
+                walkableClimb: 1,
+                walkableRadius: 1,
+                maxEdgeLen: 12,
+                maxSimplificationError: 1.3,
+                minRegionArea: 8,
+                mergeRegionArea: 20,
+                maxVertsPerPoly: 6,
+                detailSampleDist: 6,
+                detailSampleMaxError: 1,
+            };
+
+            this.navigationPlugin.createNavMesh(navmeshMeshes, parameters);
+
+
+
+            this.crowd = this.navigationPlugin.createCrowd(10, 0.1, scene);
+
+            const agentParams = {
+                radius: 0.2,
+                height: 1.2,
+                maxAcceleration: 10,
+                maxSpeed: 5,
+                collisionQueryRange: 10,
+                pathOptimizationRange: 10,
+                separationWeight: 1
+            };
+
+            this.agentMesh = BABYLON.MeshBuilder.CreateSphere("agent", {
+                diameter: 1
+            }, scene);
+
+            const agentMat = new BABYLON.StandardMaterial("agentMat", scene);
+            agentMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
+            this.agentMesh.material = agentMat;
+
+            this.agentMesh.position = new BABYLON.Vector3(0, 0.9, 0);
+
+            // ✅ START POSITION = TECHBAR
+            const startMesh = scene.getMeshByName("RL_01S005_Techbar");
+
+            const startPos = this.navigationPlugin.getClosestPoint(
+                startMesh.getBoundingInfo().boundingBox.centerWorld
+            );
+            this.startPos = startPos.clone();
+
+            // CREATE AGENT
+            this.agentIndex = this.crowd.addAgent(startPos, agentParams, this.agentMesh);
+        
+            this.updateDropdownOptions();
+            this.showSpinner(false);
+        });
+
+
+        // Save initial camera state
+        this.initialCameraState = {
+            target: this.camera.target.clone(),
+            radius: this.camera.radius,
+            alpha: this.camera.alpha,
+            beta: this.camera.beta
+        };
+
+
+        function mergePrimitivesInList(meshList) {
+            const groups = {};
+
+            meshList.forEach(m => {
+                const baseName = m.name.replace(/_primitive\d+/i, "");
+                if (!groups[baseName]) groups[baseName] = [];
+                groups[baseName].push(m);
+            });
+
+            const finalList = [];
+
+            for (let name in groups) {
+                const meshes = groups[name];
+
+                if (meshes.length === 1) {
+                    finalList.push(meshes[0]);
+                    continue;
+                }
+
+                const merged = BABYLON.Mesh.MergeMeshes(meshes, true, true, undefined, false, true);
+
+                if (merged) {
+                    merged.name = name;
+                    finalList.push(merged);
+                }
+            }
+
+            return finalList;
+        }
+
+
+        this.navigateBtn.addEventListener("click", () => {
+            if (!this.destinationMesh || !this.crowd) return;
+
+            const targetPos = this.navigationPlugin.getClosestPoint(
+                this.destinationMesh.getBoundingInfo().boundingBox.centerWorld
+            );
+
+            this.crowd.agentGoto(this.agentIndex, targetPos);
+
+
+            var rawPath = this.navigationPlugin.computePath(
+                this.crowd.getAgentPosition(this.agentIndex),
+                this.navigationPlugin.getClosestPoint(targetPos)
+            );
+
+            // 🔼 lift path slightly above floor
+            const liftedPath = rawPath.map(p =>
+                new BABYLON.Vector3(p.x, p.y + 0.90, p.z)
+            );
+
+            // 🧵 create thick tube path (BEST OPTION)
+            if (this.pathMesh) {
+                this.pathMesh.dispose();
+            }
+
+            this.pathMesh = BABYLON.MeshBuilder.CreateTube(
+                "pathTube",
+                {
+                    path: liftedPath,
+                    radius: 0.30,   // 👈 thickness (increase if you want more)
+                    tessellation: 8,
+                    updatable: false
+                },
+                scene
+            );
+
+            // 🔴 red material
+            const mat = new BABYLON.StandardMaterial("pathMat", scene);
+            mat.diffuseColor = new BABYLON.Color3(1, 0, 0);
+            mat.emissiveColor = new BABYLON.Color3(1, 0, 0);
+            this.pathMesh.material = mat;
+
+            // camera move
+            this.goTopDownView(targetPos);
+        });
+
+        scene.onPointerObservable.add(pointerInfo => {
+            if (pointerInfo.type === BABYLON.PointerEventTypes.POINTERPICK) {
+                const picked = pointerInfo.pickInfo.pickedMesh;
+                if (picked && picked.name.includes("RL_")) this.selectMesh(picked);
+            }
+        });
+
+        scene.onPointerObservable.add((pointerInfo) => {
+            if (pointerInfo.pickInfo?.hit) {
+                const p = pointerInfo.pickInfo.pickedPoint;
+
+                const nav = this.navigationPlugin.getClosestPoint(p);
+
+
+            }
+        });
+        scene.onBeforeRenderObservable.add(() => {
+            if (!this.crowd || this.agentIndex === null) return;
+
+            const pos = this.crowd.getAgentPosition(this.agentIndex);
+
+            // keep agent on navmesh
+            this.agentMesh.position.x = pos.x;
+            this.agentMesh.position.z = pos.z;
+
+            // lift it slightly above ground
+            this.agentMesh.position.y = pos.y + 0.9;
+        });
+
+        return scene;
+    }
+
+
+    setupZoneFilters() {
+        const collabCheckbox = document.getElementById("collabZone");
+        const villageCheckbox = document.getElementById("villageZone");
+
+        const updateHighlights = () => {
+            this.highlightLayer.removeAllMeshes();
+
+            this.allMeshes.forEach(mesh => {
+
+
+
+                var cleanName = mesh.name.replace("RL_", "");
+                if (cleanName.endsWith("_")) cleanName = cleanName.slice(0, -1);
+
+                if (collabCheckbox.checked && this.collabZone.includes(cleanName)) {
+                    this.highlightLayer.addMesh(mesh, BABYLON.Color3.Blue());
+                }
+
+                if (villageCheckbox.checked && this.villageZone.includes(cleanName)) {
+                    this.highlightLayer.addMesh(mesh, BABYLON.Color3.Green());
+                }
+            });
+        };
+
+        collabCheckbox.addEventListener("change", updateHighlights);
+        villageCheckbox.addEventListener("change", updateHighlights);
+    }
+
+    showSpinner(show) {
+        if (this.spinner) {
+            this.spinner.style.display = show ? "flex" : "none";
+        }
+    }
+
+    setupSearchDropdown() {
+        this.input.addEventListener("input", () => this.updateDropdownOptions(this.input.value));
+        this.dropdown.addEventListener("change", () => this.searchRoom(this.dropdown.value));
+    }
+
+    updateDropdownOptions(filter = "") {
+        const filterLower = filter.toLowerCase();
+        this.dropdown.innerHTML = "";
+
+        this.allMeshes
+            .filter(m => m.name.toLowerCase().includes(filterLower))
+            .forEach(m => {
+                const opt = document.createElement("option");
+                opt.value = m.name;
+                opt.textContent = m.name;
+                this.dropdown.appendChild(opt); // this bad
+            });
+    }
+
+    searchRoom(roomName) {
+        const mesh = this.allMeshes.find(m => m.name.toLowerCase() === roomName.toLowerCase());
+        if (!mesh) return alert("Room not found!");
+        this.selectMesh(mesh);
+    }
+
+    selectMesh(mesh) {
+        this.highlightLayer.removeAllMeshes();
+
+        this.selectedMesh = mesh;
+        this.highlightLayer.addMesh(mesh, BABYLON.Color3.Red());
+
+        if (this.selectedRoomDiv) {
+            this.selectedRoomDiv.textContent = mesh.name;
+        }
+
+        const boundingInfo = mesh.getBoundingInfo();
+        const center = boundingInfo.boundingBox.centerWorld;
+        const targetRadius = Math.max(boundingInfo.boundingBox.extendSize.length() * 3, 10);
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camMove", this.camera, "target", 60, 90,
+            this.camera.target, center, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camZoom", this.camera, "radius", 60, 90,
+            this.camera.radius, targetRadius, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+
+        this.destinationMesh = mesh;
+
+        // show navigate button
+        if (this.navigateBtn) {
+            this.navigateBtn.style.display = "block";
+        }
+    }
+
+    resetCamera() {
+
+        if (this.crowd && this.agentIndex !== null && this.startPos) {
+
+            // stop current movement
+            this.crowd.agentTeleport(this.agentIndex, this.startPos);
+
+            // optional: reset navigation target too
+            this.crowd.agentGoto(this.agentIndex, this.startPos);
+
+            // remove path line if exists
+            if (this.pathMesh) {
+                this.pathMesh.dispose();
+                this.pathMesh = null;
+            }
+
+            this.currentPath = null;
+        }
+
+        if (!this.initialCameraState) return;
+
+        const s = this.initialCameraState;
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camTarget",
+            this.camera,
+            "target",
+            60,
+            90,
+            this.camera.target,
+            s.target,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camRadius",
+            this.camera,
+            "radius",
+            60,
+            90,
+            this.camera.radius,
+            s.radius,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camAlpha",
+            this.camera,
+            "alpha",
+            60,
+            90,
+            this.camera.alpha,
+            s.alpha,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "camBeta",
+            this.camera,
+            "beta",
+            60,
+            90,
+            this.camera.beta,
+            s.beta,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+    }
+
+
+    goTopDownView() {
+        // Get FULL map bounds (IMPORTANT)
+        const bounds = this.scene.getWorldExtends();
+        const center = bounds.min.add(bounds.max).scale(0.5);
+
+        // HUGE zoom based on full model size
+        const size = BABYLON.Vector3.Distance(bounds.min, bounds.max);
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "topAlpha",
+            this.camera,
+            "alpha",
+            60,
+            30,
+            this.camera.alpha,
+            Math.PI / 2,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "topBeta",
+            this.camera,
+            "beta",
+            60,
+            30,
+            this.camera.beta,
+            0.05,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        BABYLON.Animation.CreateAndStartAnimation(
+            "topZoom",
+            this.camera,
+            "radius",
+            60,
+            30,
+            this.camera.radius,
+            size * 1,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        this.camera.setTarget(center);
+    }
+
+
+}
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    new SunLifeMetaverse(
+        "renderCanvas",
+        "roomDropdown",
+        "roomInput",
+        "spinner",
+        "selectedRoomName"
+    );
+});
