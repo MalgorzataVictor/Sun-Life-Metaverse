@@ -1,0 +1,580 @@
+{
+  "rooms": [
+    {
+      "id": "01N001",
+      "name": "01N001",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N002",
+      "name": "01N002",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N003",
+      "name": "01N003",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N005",
+      "name": "01N005",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N006",
+      "name": "01N006",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N027",
+      "name": "01N027",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N028",
+      "name": "01N028",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N029",
+      "name": "01N029",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N030",
+      "name": "01N030",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N092",
+      "name": "01N092",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N093",
+      "name": "01N093",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01N101",
+      "name": "01N101",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E033",
+      "name": "01E033",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E034",
+      "name": "Kitchen",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E036",
+      "name": "CourtYard",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E037",
+      "name": "01E037",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E038",
+      "name": "Office2",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E060",
+      "name": "01E060",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E092",
+      "name": "01E092",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E093",
+      "name": "01E093",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01E094",
+      "name": "01E094",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W008",
+      "name": "Pool",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W009",
+      "name": "Library",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W010",
+      "name": "01W010",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W020",
+      "name": "Crystal",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W055",
+      "name": "01W055",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W056",
+      "name": "01W056",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W057",
+      "name": "01W057",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W058",
+      "name": "01W058",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W059",
+      "name": "01W059",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W061",
+      "name": "01W061",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W062",
+      "name": "01W062",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W063",
+      "name": "Dunmore",
+      "description": "Conference room",
+      "capacity": "12",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": "assets/Greenway.jpg"
+    },
+    {
+      "id": "01W064",
+      "name": "01W064",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W067",
+      "name": "Lismore",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": "assets/Lismore.jpg"
+    },
+    {
+      "id": "01W068",
+      "name": "Greenway",
+      "description": "Meeting space",
+      "capacity": "6",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": "assets/Greenway.jpg"
+    },
+    {
+      "id": "01W095",
+      "name": "Viking",
+      "description": "A collaborative meeting space",
+      "capacity": "8",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": "assets/Viking.jpg"
+    },
+    {
+      "id": "01W096",
+      "name": "01W096",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W097",
+      "name": "01W097",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W098",
+      "name": "01W098",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W099",
+      "name": "01W099",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W103",
+      "name": "01W103",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W104",
+      "name": "01W104",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W105",
+      "name": "01W105",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W106",
+      "name": "01W106",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W107",
+      "name": "SensoryRoom",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01W108",
+      "name": "TableTennis",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01S001",
+      "name": "VRRoom",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01S002",
+      "name": "Office1",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01S003",
+      "name": "01S003",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01S004",
+      "name": "SupportCentre",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01S005",
+      "name": "Techbar",
+      "description": "Technology hub",
+      "capacity": "10",
+      "zone": "Village",
+      "floor": 0,
+      "image": "assets/Techbar.jpg"
+    },
+    {
+      "id": "01S009",
+      "name": "01S009",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "01S010",
+      "name": "01S010",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01028",
+      "name": "Reception",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01029",
+      "name": "S01029",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01030",
+      "name": "S01030",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01016",
+      "name": "S01016",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01035",
+      "name": "S01035",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01036",
+      "name": "S01036",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01038",
+      "name": "S01038",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01050",
+      "name": "S01050",
+      "description": "",
+      "capacity": "",
+      "zone": "Collaboration",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01044",
+      "name": "Coffee",
+      "description": "",
+      "capacity": "",
+      "zone": "Village",
+      "floor": 0,
+      "image": ""
+    },
+    {
+      "id": "S01014",
+      "name": "Canteen",
+      "description": "",
+      "capacity": "",
+      "zone": "Village",
+      "floor": 0,
+      "image": ""
+    }
+  ]
+}

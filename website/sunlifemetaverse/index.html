@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Sun Life Metaverse</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/SLF.svg">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- Top Bar -->
+    <div id="topBarMain">
+        <img src="assets/SLF_FullLogo.png" alt="Sun Life Financial" id="topBarLogo">
+        <div class="topBarDivider"></div>
+        <h1>Metaverse</h1>
+        <div id="topBarOffice">Waterford Office</div>
+    </div>
+
+    <!-- LEFT PANEL -->
+    <div id="leftPanel">
+
+        <div id="zoneMenu">
+            <div class="menuTitle">Select Zone</div>
+
+            <div class="zoneOption" id="collabZoneBtn">
+                <div class="zoneSquare" style="background-color: #0096FF;"></div>
+                <span>Collaboration Zone</span>
+            </div>
+            <div class="zoneOption" id="villageZoneBtn">
+                <div class="zoneSquare" style="background-color: #50C878;"></div>
+                <span>Village Space</span>
+            </div>
+        </div>
+
+        <div id="resetBox">
+            <button id="resetViewBtn">Reset View</button>
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div id="rightPanel">
+
+        <div id="searchBox">
+            <div class="menuTitle">Search</div>
+            <div class="searchInputWrapper">
+                <input type="text" id="roomInput" placeholder="Search room by name or id">
+                <button id="searchDropdownToggle" class="dropdownArrow">▼</button>
+            </div>
+            <div id="roomDropdownWrapper" style="display:none;">
+                <select id="roomDropdown"></select>
+            </div>
+        </div>
+
+        <div id="roomBox" style="display:none;">
+            <button id="clearSelectionBtn" class="closeBtn" title="Clear selection">✕</button>
+            <div class="menuTitle">Room Info</div>
+            <div id="selectedRoomName">None</div>
+
+            <!-- Button Container -->
+            <div id="buttonContainer" style="display:none; margin-top:10px;">
+                <button id="navigateBtn" style="flex:1;">
+                    Navigate
+                </button>
+                <button id="pinBtn" style="flex:1;">
+                    Pin
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Recommended Rooms Banner -->
+    <div id="recommendedRoomsBanner" class="recommended-rooms-banner"></div>
+
+
+
+
+    <canvas id="renderCanvas"></canvas>
+
+
+
+    <script src=https://cdn.babylonjs.com/babylon.js></script>
+
+    <script src=https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js></script>
+
+
+    <script src="https://preview.babylonjs.com/recast.js"></script>
+    
+    <!-- Modular Manager Scripts -->
+    <script src="js/meshManager.js"></script>
+    <script src="js/sceneManager.js"></script>
+    <script src="js/navigationManager.js"></script>
+    <script src="js/zoneManager.js"></script>
+    <script src="js/searchManager.js"></script>
+    <script src="js/recommendedRoomsManager.js"></script>
+    
+    <!-- Main Application -->
+    <script src="js/app.js"></script>
+
+    
+
+
+
+</body>
+
+
+
+</html>
