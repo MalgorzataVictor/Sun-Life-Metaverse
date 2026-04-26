@@ -68,17 +68,19 @@ class SunLifeMetaverse {
         window.addEventListener("resize", () => this.engine.resize());
 
         // Load 3D model and setup scene
+
         this.loadModel(scene);
 
         // Setup UI event listeners
         this.setupEventListeners();
     }
 
+
     /**
      * Load 3D model and setup navigation
      */
     loadModel(scene) {
-        BABYLON.SceneLoader.Append("", "models/SLM-VR.glb", scene, () => {
+        BABYLON.SceneLoader.Append("", "models/props.glb", scene, () => {
             // Filter and process meshes
             this.allMeshes = MeshManager.filterByPrefix(scene.meshes, "RL_");
             this.allMeshes = MeshManager.mergePrimitivesInList(this.allMeshes);
@@ -98,12 +100,19 @@ class SunLifeMetaverse {
                     if (nodeName.includes('doorl') || nodeName.includes('doorr') || nodeName.includes('dooro')) {
                         return false;
                     }
+                    // Exclude Props folder from navmesh
+                    if (nodeName.includes('props')) {
+                        return false;
+                    }
                     currentNode = currentNode.parent;
                 }
                 
                 return true;
             });
-            this.navigationManager.createNavMesh(navmeshMeshes);
+
+            console.log("NavMesh size:", navmeshMeshes.length);
+             this.navigationManager.createNavMesh(navmeshMeshes);
+            
             this.navigationManager.createCrowd();
 
             // Create agent at starting position
@@ -121,8 +130,8 @@ class SunLifeMetaverse {
             // Setup scene interactions
             this.setupSceneInteractions(scene);
 
-            this.showSpinner(false);
-        });
+            this.showSpinner(false); 
+         });
     }
 
     /**
