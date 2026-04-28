@@ -25,22 +25,28 @@ class NavigationManager {
      */
     createNavMesh(meshes) {
         const parameters = {
-            cs: 0.1,                    // Cell size - smaller = more precision
-            ch: 0.1,                    // Cell height - smaller = more precision
-            walkableSlopeAngle: 15,     // Maximum slope angle (reduced to prevent climbing)
+            cs: 0.2,                    // Cell size - larger = more connected
+            ch: 0.2,                    // Cell height - larger = more connected
+            walkableSlopeAngle: 35,     // Maximum slope angle (increased)
             walkableHeight: 2,          // Minimum ceiling height
-            walkableClimb: 0.2,         // Maximum step height (reduced to prevent going over obstacles)
-            walkableRadius: 0.4,        // Agent radius buffer (balanced for door navigation)
+            walkableClimb: 1.0,         // Maximum step height (increased)
+            walkableRadius: 0.3,        // Agent radius (smaller to fit through gaps)
             maxEdgeLen: 12,
-            maxSimplificationError: 1.0, // Reduced for more accurate paths
-            minRegionArea: 8,
-            mergeRegionArea: 20,
+            maxSimplificationError: 3.0, // Higher = more connected
+            minRegionArea: 3,           // Lower = allow smaller regions
+            mergeRegionArea: 10,        // Lower = merge more regions
             maxVertsPerPoly: 6,
             detailSampleDist: 6,
-            detailSampleMaxError: 0.5,  // Reduced for better detail
+            detailSampleMaxError: 1.0,  // Higher = more connected
         };
-
         this.navigationPlugin.createNavMesh(meshes, parameters);
+      /*   var navmeshdebug = this.navigationPlugin.createDebugNavMesh(this.scene);
+        navmeshdebug.position = new BABYLON.Vector3(0, 0.01, 0);
+
+        var matdebug = new BABYLON.StandardMaterial('matdebug', scene);
+        matdebug.diffuseColor = new BABYLON.Color3(0.1, 0.2, 1);
+        matdebug.alpha = 0.2;
+        navmeshdebug.material = matdebug; */
     }
 
     /**
@@ -77,7 +83,7 @@ class NavigationManager {
         this.agentMesh.material = agentMat;
 
         this.agentMesh.position = new BABYLON.Vector3(0, 0.9, 0);
-        
+
         // Hide the agent sphere, only show the path line
         this.agentMesh.isVisible = false;
 
@@ -233,7 +239,7 @@ class NavigationManager {
             this.pathMesh.dispose();
             this.pathMesh = null;
         }
-        
+
         // Stop agent movement
         if (this.crowd && this.agentIndex !== null && this.agentMesh) {
             const currentPos = this.agentMesh.position;

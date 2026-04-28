@@ -57,7 +57,7 @@ class SunLifeMetaverse {
         // Initialize managers
         this.navigationManager = new NavigationManager(scene);
         await this.navigationManager.initializeNavigation(recast);
-        
+
         // Setup managers with necessary references
         this.zoneManager = new ZoneManager(this.highlightLayer);
         this.searchManager = new SearchManager(this.highlightLayer, this.sceneManager);
@@ -80,7 +80,9 @@ class SunLifeMetaverse {
      * Load 3D model and setup navigation
      */
     loadModel(scene) {
-        BABYLON.SceneLoader.Append("", "models/props.glb", scene, () => {
+        BABYLON.SceneLoader.Append("", "models/SLM-VR.glb", scene, 
+            // Success callback
+            () => {
             // Filter and process meshes
             this.allMeshes = MeshManager.filterByPrefix(scene.meshes, "RL_");
             this.allMeshes = MeshManager.mergePrimitivesInList(this.allMeshes);
@@ -92,7 +94,7 @@ class SunLifeMetaverse {
             // Setup navigation mesh - exclude doors from navmesh
             const navmeshMeshes = scene.meshes.filter(m => {
                 if (!m.isVisible) return false;
-                
+
                 // Check if any parent in the hierarchy contains door keywords
                 let currentNode = m;
                 while (currentNode) {
@@ -106,13 +108,12 @@ class SunLifeMetaverse {
                     }
                     currentNode = currentNode.parent;
                 }
-                
+
                 return true;
             });
 
             console.log("NavMesh size:", navmeshMeshes.length);
-             this.navigationManager.createNavMesh(navmeshMeshes);
-            
+            this.navigationManager.createNavMesh(navmeshMeshes);
             this.navigationManager.createCrowd();
 
             // Create agent at starting position
@@ -130,8 +131,10 @@ class SunLifeMetaverse {
             // Setup scene interactions
             this.setupSceneInteractions(scene);
 
-            this.showSpinner(false); 
-         });
+            this.showSpinner(false);
+        },
+        
+       );
     }
 
     /**
@@ -265,18 +268,18 @@ class SunLifeMetaverse {
     resetView() {
         this.navigationManager.resetAgent();
         this.sceneManager.resetCamera();
-        
+
         // Hide button container
         if (this.buttonContainer) {
             this.buttonContainer.style.display = "none";
         }
-        
+
         // Remove pin marker if it exists
         if (this.pinMarker) {
             this.pinMarker.dispose();
             this.pinMarker = null;
         }
-        
+
         this.destinationMesh = null;
     }
 
