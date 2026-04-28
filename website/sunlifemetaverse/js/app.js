@@ -80,61 +80,81 @@ class SunLifeMetaverse {
      * Load 3D model and setup navigation
      */
     loadModel(scene) {
-        BABYLON.SceneLoader.Append("", "models/SLM-VR.glb", scene, 
-            // Success callback
+        // Load floors/walls first
+        BABYLON.SceneLoader.Append("", "models/Slm.glb", scene,
+            // Success callback - floors/walls loaded, now load props
             () => {
-            // Filter and process meshes
-            this.allMeshes = MeshManager.filterByPrefix(scene.meshes, "RL_");
-            this.allMeshes = MeshManager.mergePrimitivesInList(this.allMeshes);
+                console.log("Loaded Slm.glb (floors/walls)");
 
-            // Auto-adjust camera to view entire scene
-            this.sceneManager.autoAdjustCamera();
-            this.sceneManager.saveInitialCameraState();
+                // Load props on top
+                BABYLON.SceneLoader.Append("", "models/Props-optimized.glb", scene,
+                    // Success callback - both models loaded
+                    () => {
+                        console.log("Loaded Props-optimized.glb (props)");
 
-            // Setup navigation mesh - exclude doors from navmesh
-            const navmeshMeshes = scene.meshes.filter(m => {
-                if (!m.isVisible) return false;
+                        scene.materials.forEach(mat => {
+                            if (mat.name === "Wall_Yellow_Accent") {
 
-                // Check if any parent in the hierarchy contains door keywords
-                let currentNode = m;
-                while (currentNode) {
-                    const nodeName = currentNode.name.toLowerCase();
-                    if (nodeName.includes('doorl') || nodeName.includes('doorr') || nodeName.includes('dooro')) {
-                        return false;
+                                mat.albedoColor = new BABYLON.Color3(1, 0.82, 0.0);
+
+                                mat.metallic = 0;
+                                mat.roughness = 1;
+                                mat.emissiveColor = BABYLON.Color3.Black();
+                            }
+                        });
+
+                        // Filter and process meshes
+                        this.allMeshes = MeshManager.filterByPrefix(scene.meshes, "RL_");
+                        this.allMeshes = MeshManager.mergePrimitivesInList(this.allMeshes);
+
+                        // Auto-adjust camera to view entire scene
+                        this.sceneManager.autoAdjustCamera();
+                        this.sceneManager.saveInitialCameraState();
+
+                        // Setup navigation mesh - exclude doors from navmesh
+                        const navmeshMeshes = scene.meshes.filter(m => {
+                            if (!m.isVisible) return false;
+
+                            // Check if any parent in the hierarchy contains door keywords
+                            let currentNode = m;
+                            while (currentNode) {
+                                const nodeName = currentNode.name.toLowerCase();
+                                if (nodeName.includes('doorl') || nodeName.includes('doorr') || nodeName.includes('dooro')) {
+                                    return false;
+                                }
+                                // Exclude Props folder from navmesh
+                                if (nodeName.includes('props')) {
+                                    return false;
+                                }
+                                currentNode = currentNode.parent;
+                            }
+
+                            return true;
+                        });
+
+                        console.log("NavMesh size:", navmeshMeshes.length);
+                        this.navigationManager.createNavMesh(navmeshMeshes);
+                        this.navigationManager.createCrowd();
+
+                        // Create agent at starting position
+                        const startMesh = scene.getMeshByName("RL_" + this.startMeshName);
+                        if (startMesh) {
+                            const startPos = startMesh.getBoundingInfo().boundingBox.centerWorld;
+                            this.navigationManager.createAgent(startPos);
+                        }
+
+                        // Setup search and zones
+                        this.searchManager.setMeshes(this.allMeshes);
+                        this.searchManager.setZoneManager(this.zoneManager);
+                        this.zoneManager.setupZoneFilters(this.allMeshes);
+
+                        // Setup scene interactions
+                        this.setupSceneInteractions(scene);
+
+                        this.showSpinner(false);
                     }
-                    // Exclude Props folder from navmesh
-                    if (nodeName.includes('props')) {
-                        return false;
-                    }
-                    currentNode = currentNode.parent;
-                }
-
-                return true;
+                );
             });
-
-            console.log("NavMesh size:", navmeshMeshes.length);
-            this.navigationManager.createNavMesh(navmeshMeshes);
-            this.navigationManager.createCrowd();
-
-            // Create agent at starting position
-            const startMesh = scene.getMeshByName("RL_" + this.startMeshName);
-            if (startMesh) {
-                const startPos = startMesh.getBoundingInfo().boundingBox.centerWorld;
-                this.navigationManager.createAgent(startPos);
-            }
-
-            // Setup search and zones
-            this.searchManager.setMeshes(this.allMeshes);
-            this.searchManager.setZoneManager(this.zoneManager);
-            this.zoneManager.setupZoneFilters(this.allMeshes);
-
-            // Setup scene interactions
-            this.setupSceneInteractions(scene);
-
-            this.showSpinner(false);
-        },
-        
-       );
     }
 
     /**
