@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="resources/logo.png" alt="Sun Life Metaverse Logo" width="80"  height="80">
+  <img src="resources/logo.png" alt="Sun Life Metaverse Logo" width="128"  height="128">
 </p>
 
 <h1 align="center">
