@@ -4,8 +4,9 @@ class RecommendedRoomsManager {
     constructor(roomsData, searchManager) {
         this.roomsData = roomsData;
         this.searchManager = searchManager;
-        this.recommendedRoomIds = ['01W095', '01W063', '01W068', '01S005']; // Viking, Dunmore, Greenway, Techbar
+        this.recommendedRoomIds = ['01W095', '01W063', '01W067', '01S005']; // Viking, Lismore, Greenway, Techbar
     }
+    
 
     /**
      * Initialize recommended rooms banner

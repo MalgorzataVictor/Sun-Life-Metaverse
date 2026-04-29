@@ -14,8 +14,7 @@ class SceneManager {
      */
     createScene() {
         const scene = new BABYLON.Scene(this.engine);
-        scene.clearColor = new BABYLON.Color3(1.0, 0.97, 0.9);
-
+scene.clearColor = new BABYLON.Color4(0.92, 0.89, 0.82, 1);
         this.camera = this.createCamera(scene);
         this.createLighting(scene);
 
@@ -62,6 +61,29 @@ class SceneManager {
      */
     createLighting(scene) {
         new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+    }
+
+    /**
+     * Create Babylon Sandbox style environment
+     * @param {BABYLON.Scene} scene - The scene
+     */
+    createEnvironment(scene) {
+        // Create default environment for studio lighting
+        const envHelper = scene.createDefaultEnvironment({
+            createSkybox: true,
+            skyboxSize: 1000,
+            skyboxColor: new BABYLON.Color3(0.93, 0.93, 0.95),
+            createGround: false,
+            groundSize: 1000,
+            groundColor: new BABYLON.Color3(0.93, 0.93, 0.95),
+            enableGroundShadow: false,
+        });
+        
+        // Configure image processing for premium look
+        scene.imageProcessingConfiguration.exposure = 1.1;
+        scene.imageProcessingConfiguration.contrast = 1.05;
+        scene.imageProcessingConfiguration.toneMappingEnabled = true;
+        scene.imageProcessingConfiguration.toneMappingType = BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES;
     }
 
     /**
