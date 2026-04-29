@@ -11,9 +11,16 @@
 <b>Immersive 3D Workplace Navigation Platform</b>
 </p>
 
+
+
+<p align="center">
+  <img src="resources/slm2.png" alt="Sun Life Metaverse Logo" width="500">
+</p>
+
 <p align="center">
 VR • Web • Unity • Babylon.js • Meta Quest 3
 </p>
+
 
 <p align="center">
 <img src="https://img.shields.io/badge/Version-V.1.0-14639b"> 
@@ -36,8 +43,8 @@ Developed as a Final Year Software Systems Development project in collaboration 
 <h2 align="center">Experience Preview</h2>
 
 <p align="center">
-  <img src="resources/Web.png" width="420">
-  <img src="resources/VR.png" width="420">
+  <img src="resources/picture2.png" width="500" height="250">
+  <img src="resources/VR.png" width="500" height="250">
 </p>
 
 ---
