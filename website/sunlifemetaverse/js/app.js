@@ -81,7 +81,7 @@ class SunLifeMetaverse {
      */
     loadModel(scene) {
         // Load floors/walls first
-        BABYLON.SceneLoader.Append("", "models/Slm.glb", scene,
+        BABYLON.SceneLoader.Append("", "models/SLMWaterford.glb", scene,
             // Success callback - floors/walls loaded, now load props
             () => {
                 console.log("Loaded Slm.glb (floors/walls)");
